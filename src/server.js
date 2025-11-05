@@ -18,7 +18,11 @@ import professorRoutes from "./routes/professorRoutes.js";
 import personalRoutes from "./routes/personalRoutes.js";
 
 const app = express();
-app.use(cors({ origin: '*' }));
+app.use(cors({
+  origin: ["https://frontendacademia.vercel.app/"], // URL do seu front no Vercel
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 app.use(express.json());
 app.use(express.static('frontend'));
 
